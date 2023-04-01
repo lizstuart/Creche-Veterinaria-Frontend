@@ -1,0 +1,49 @@
+.footer{
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height: calc(100vh - 950px);
+    background: linear-gradient(132deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(50px);
+     
+  }
+  
+  .contacts{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    top: 15px;
+    right: 30px;
+    gap: 20px;
+    z-index: 10;
+  }
+  
+  .payments{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    top: 10px;
+    left: 30px;
+    gap: 20px;
+    z-index: 10;
+  
+  }
+  
+  .pay{
+    width: 60px;
+    cursor: pointer;
+  }
+  
+  .pay__pix{
+    width: 50px;
+    cursor: pointer;
+  }
+
+  .icon{
+    width: 40px;
+    cursor: pointer;
+  }

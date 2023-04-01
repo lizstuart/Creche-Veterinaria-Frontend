@@ -1,0 +1,136 @@
+.container__signIn{
+width: 100vw;
+height: 100vh;
+background-image: url(../../assets/background.png);
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+
+.section__signIn{
+  display: flex;
+  
+  height: calc(100vh - 180px );
+  width: 100%;
+  backdrop-filter: blur(8px);
+}
+
+.presentation{
+  display: flex;
+  position: relative;
+  top: 5%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  height: 80%;
+  width: 50%;
+  margin-left: 5%;
+  background-color: rgb(173, 174, 223, 0.5);
+}
+
+div h1{
+  font-family: 'Alkatra', cursive;
+  font-size: 40px;
+  margin: 0;
+  color:  #0a041a;
+}
+
+div p{
+width: 90%;
+font-family: 'Alkatra', cursive;
+font-size: 25px;
+text-align: justify;
+color: aliceblue;
+margin: 2px;
+color:  #0a041a;
+}
+
+.main__form{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+}
+
+.form__signIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 400px;
+  height: 550px;
+  background-color: rgb(173, 174, 223, 0.5);
+}
+
+.form__signIn  h1{
+  display: flex;
+  position: absolute;
+  top: 22%;
+  font-family: 'Alkatra', cursive;
+  font-size: 50px;
+  font-weight: 100;
+  color: #0a041a;
+
+}
+
+.label__email__signIn{
+  position: absolute;
+  top: 33%;
+  left: 65%;
+}
+
+.label__senha__signIn{
+  position: absolute;
+  top: 50%;
+  left: 65%;
+}
+
+.input__email__signIn{
+  display:flex;
+  position: absolute;
+  top: 38%
+
+}
+
+.input__senha__signIn{
+  display:flex;
+  position: absolute;
+  top: 55%;
+}
+
+.input__email__signIn, 
+.input__senha__signIn{
+  background-color: rgb(215, 208, 236);
+  border: 1px solid rgb(215, 208, 236);
+}
+
+.btn__signIn {
+  display:flex;
+  position: absolute;
+  top: 67%;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgb(89, 187, 187);
+  border: 1px solid rgb(89, 187, 187);
+ 
+}
+
+form span{
+  color: #0a041a;
+  position: absolute;
+  bottom: 22%;
+  font-family: 'Alkatra', cursive;
+  font-size:20px;
+  letter-spacing: 0.5px;
+  
+}
+
+form span a{
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 5px;
+  font-weight:bold
+}

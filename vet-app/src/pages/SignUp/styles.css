@@ -1,0 +1,113 @@
+.container__signUp{
+width: 100vw;
+height: 100vh;
+background-image: url(../../assets/background_SignUp.png);
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.section{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - 180px );
+    width: 100%;
+    
+    backdrop-filter: blur(8px);
+  }
+
+.form__signUp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    height: 680px;
+    background-color: rgba(168, 118, 118, 0.5);
+}
+
+.form__signUp h1{
+    display: flex;
+    position: absolute;
+    top: 10%;
+    font-family: 'Alkatra', cursive;
+    font-size: 50px;
+    font-weight: 100;
+    color: #0a041a;
+} 
+
+.label__nome__signUp{
+    position: absolute;
+    left: 40%;
+    top:25%;
+}
+
+.input__nome__signUp{
+    position: absolute;
+    top:29%
+}
+
+.label__email__signUp{
+    position: absolute;
+    left: 40%;
+    top:38%;
+}
+
+.input__email__signUp{
+    position: absolute;
+    top:42%
+}
+
+.label__senha__signUp{
+    position: absolute;
+    left: 40%;
+    top:51%;
+}
+
+.input__senha__signUp{
+    position: absolute;
+    top:55%;
+}
+
+.label__confirmSenha__signUp{
+    position: absolute;
+    left: 40%;
+    top:64%;
+}
+
+.input__confirmSenha__signUp{
+    position: absolute;
+    top:68%;
+}
+
+.span__error{
+    position: absolute;
+    bottom: 21.5%;
+}
+
+.btn__signUp{
+    display:flex;
+    position: absolute;
+    top: 80%;
+    align-items: center;
+    justify-content: center;
+  
+    background-color: rgb(226, 114, 129);
+    border: 1px solid rgb(226, 114, 129);
+}
+
+
+
+
+
+
+
+.input__nome__signUp,
+.input__email__signUp,
+.input__senha__signUp,
+.input__confirmSenha__signUp {
+    background-color: rgb(240, 193, 193);
+    border: 1px solid  rgb(240, 193, 193);
+}
+
