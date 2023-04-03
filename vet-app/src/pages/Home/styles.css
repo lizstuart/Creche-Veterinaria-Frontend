@@ -1,0 +1,39 @@
+.container__home{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../../assets/background_Home.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    }
+
+    .section__home{
+        display: flex;
+        width: 100vw;
+        height: calc(100vh - 180px);
+        backdrop-filter: blur(8px);
+    }
+
+    .main__form__home{
+        width: 45%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .table{
+        width: 55%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .form__home{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        width: 60%;
+        height: 80%;
+        background-color: rgb(144, 238, 144, 0.3);
+    }
