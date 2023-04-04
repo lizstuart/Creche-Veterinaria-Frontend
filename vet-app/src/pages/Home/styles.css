@@ -10,7 +10,7 @@
         display: flex;
         width: 100vw;
         height: calc(100vh - 180px);
-        backdrop-filter: blur(8px);
+        backdrop-filter: blur(20px);
     }
 
     .main__form__home{
@@ -25,15 +25,99 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        
     }
 
     .form__home{
+        position: absolute;
+        top:0.5%;
         display: flex;
         align-items: center;
+        text-align: center;
         justify-content: center;
         flex-direction: column;
 
-        width: 60%;
-        height: 80%;
+        width: 35%;
+        height: 90%;
         background-color: rgb(144, 238, 144, 0.3);
+    }
+
+    .form__home h1{
+        position: absolute;
+        top: 5%;
+        font-family: 'Alkatra', cursive;
+        font-size: 40px;
+        margin: 0;
+        color:  #0a041a;
+      }
+    
+    .form__home input{
+        width: 80%;
+        height: 5%;
+        background-color: rgb(190, 241, 190);
+        border: 1px solid rgb(190, 241, 190);
+    }
+
+    .label__nome__home{
+        position: absolute;
+        left: 10%;
+        top: 15%;
+    }
+
+    .input__nome__home{
+        position: absolute;
+        top: 20%;
+    }
+
+    .label__especie__home{
+        position: absolute;
+        left: 10%;
+        top: 30%;
+    }
+
+    .input__especie__home{
+        position: absolute;
+        top: 35%;
+    }
+
+    .label__raça__home{
+        position: absolute;
+        left: 10%;
+        top:45%
+    }
+
+    .input__raça__home{
+        position: absolute;
+        top: 50%
+    }
+
+    .label__gênero__home{
+        position: absolute;
+        left: 10%;
+        top:60%
+    }
+
+    .input__gênero__home{
+        position: absolute;
+        top: 65%
+    }
+
+    .label__idade__home{
+        position: absolute;
+        left: 10%;
+        top:75%
+    }
+
+    .input__idade__home{
+        position: absolute;
+        top: 80%
+    }
+
+    .btn__home{
+        position: absolute;
+        width: 70%;
+        bottom: 3%;
+        background-color: rgb(158, 231, 84);
+        border: 1px solid  rgb(158, 231, 84);
+        cursor: pointer;
     }
