@@ -1,12 +1,11 @@
 export function setItem(key, data) {
-    localStorage.setItem(key, data);
-  }
-  
-  export function getItem(key) {
-    return localStorage.getItem(key);
-  }
-  
-  export function removeItem(key) {
-    localStorage.removeItem(key);
-  }
-  
+  return localStorage.setItem(key, data);
+}
+
+export function getItem(key) {
+  return localStorage.getItem(key);
+}
+
+export function removeItem(key) {
+  return localStorage.removeItem(key);
+}

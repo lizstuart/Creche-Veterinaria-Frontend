@@ -1,27 +1,27 @@
 import "./styles.css";
+import api from "../../Service/api";
+import { useState, useEffect } from "react";
+import { getItem } from "../../Utils/storage";
 
-function Table({ setShowModalEditItem }) {
-  // const [items, setItems] = useState([]);
-  // const localItems = items
+function Table({}) {
+  const [items, setItems] = useState([]);
+  // const localItems = items;
 
-  // useEffect(() => {
-  //     try {
-
-  //         async function handleRegister() {
-  //             const response = await api.get('/transacao', {
-  //                 headers: {
-  //                     Authorization: `Bearer ${getItem('token')}`
-  //                 }
-  //             })
-  //             setItems(response.data);
-
-  //     }
-  //     handleRegister();
-
-  //     } catch (error) {
-  //         console.log(error);
-  //     }
-  // }, [items])
+  useEffect(() => {
+    try {
+      async function handleRegister() {
+        const response = await api.get("/transacao", {
+          headers: {
+            Authorization: `Bearer ${getItem("token")}`,
+          },
+        });
+        setItems(response.data);
+      }
+      handleRegister();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [items]);
   return (
     <>
       <table className="header-table">

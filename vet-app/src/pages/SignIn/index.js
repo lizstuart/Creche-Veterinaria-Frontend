@@ -1,9 +1,48 @@
 import "./styles.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
+import api from "../../Service/api";
+import { setItem } from "../../Utils/storage";
+import { useState } from "react";
 
 function SignIn() {
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
+  function handleChangeForm(event) {
+    const value = event.target.value;
+    setForm({ ...form, [event.target.name]: value });
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    try {
+      if (!form.email || !form.password) {
+        return;
+      }
+
+      const response = await api.post("/login", {
+        email: form.email,
+        senha: form.password,
+      });
+      console.log(response);
+      const { token, dadosUsuario } = response.data;
+
+      setItem("token", token);
+      setItem("userName", dadosUsuario.nome);
+      setItem("userId", dadosUsuario.id);
+
+      navigate("/home");
+    } catch (error) {
+      console.log(error.target.data.message);
+    }
+  }
+
   return (
     <div className="container__signIn">
       <Header />
@@ -24,7 +63,10 @@ function SignIn() {
           </p>
         </div>
         <div className="main__form">
-          <form className="form__signIn">
+          <form
+            onSubmit={(event) => handleSubmit(event)}
+            className="form__signIn"
+          >
             <h1>Bem-vindo(a)</h1>
             <label className="label__email__signIn" htmlFor="email">
               E-mail
@@ -33,7 +75,8 @@ function SignIn() {
               className="input__email__signIn"
               type="email"
               name="email"
-              // value={}
+              value={form.email}
+              onChange={(event) => handleChangeForm(event)}
             />
             <label className="label__senha__signIn" htmlFor="senha">
               Senha
@@ -41,15 +84,14 @@ function SignIn() {
             <input
               className="input__senha__signIn"
               type="password"
-              name="senha"
-              // value={}
+              name="password"
+              value={form.password}
+              onChange={(event) => handleChangeForm(event)}
             />
             <button className="btn__signIn">Confirmar</button>
             <span className="">
               Não possui cadastro?
-              <Link to="/signup">
-                <a>Clique aqui</a>
-              </Link>
+              <Link to="/signup">Clique aqui</Link>
             </span>
           </form>
         </div>
