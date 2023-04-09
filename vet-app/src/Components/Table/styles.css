@@ -1,54 +1,57 @@
-.tables-home{
-    width: 55%;
+.container-table{
+    width: 65%;
+    margin-top: 5%;
 }
 
-
-.tables-spending{
-    display: flex;
-    flex-direction: row;
-
-}
-
-.header-table{
-    position: absolute;
-    top: 10%;
-    right: 5%;
-    border-radius: 10px;
-    font-family: 'Alkatra', cursive;
-    font-size: 20px;
-    color:  #0a041a;
-    border: 2px solid #8feb52;
-    
-    padding: 19px;  
-    
-    overflow-y: scroll;
-    
-
-}
-
-.header-thead{
+.table-head{
     width: 650px;
-    height: 58px;
+    min-height: 58px;
     background-color: rgb(144, 238, 144, 0.2);
     box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
-}
 
-tr, thead {
-    display: grid;
-    grid-template-columns: repeat(6, 120px);
-    text-align: center;
-    width: 600px;
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
-    align-items: center;
-   
-    top: 20%;
-}
-
-th{
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
+    justify-content: space-between;
+    font-family: 'Alkatra', cursive;
+  
+    padding: 0 15px;
+    font-size: 20px;
 }
+
+.table-body{
+    width: 650px;
+    min-height: 58px;
+    background-color: rgb(144, 238, 144, 0.2);
+    box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Alkatra', cursive;
+  
+    padding: 0 15px;
+    font-size: 20px;
+}
+
+.table-column-small {
+    text-align: center;
+    width: 12%;
+  }
+  
+  .table-column-middle {
+    text-align: center;
+    width: 15%;
+  }
+  
+  .table-column-big {
+    text-align: center;
+    width: 25%;
+  }
+
+.images {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    cursor: pointer;
+  }

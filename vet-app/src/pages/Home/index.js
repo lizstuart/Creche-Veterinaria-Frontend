@@ -3,21 +3,33 @@ import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import Table from "../../Components/Table";
 import { getItem, removeItem, setItems } from "../../Utils/storage";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import api from "../../Service/api";
+import { useNavigate } from "react-router-dom";
+import pets from "../../assets/pets.svg";
+import heart from "../../assets/heart.svg";
+import user from "../../assets/user.svg";
+import exit from "../../assets/exit.svg";
 
 function Home() {
+  const navigate = useNavigate();
+  const [btnDelete, setBtnDelete] = useState(false);
+  const [items, setItems] = useState([]);
+  const [showModalEditAnimal, setShowModalEditAnimal] = useState(false);
+
   const [formAdd, setFormAdd] = useState({
-    name: "",
-    species: "",
-    race: "",
-    genre: "",
-    age: "",
+    tipo: "",
+    valor: "",
+    data: "",
+    descricao: "",
+    categoria_id: "",
   });
+
+  const localItems = items;
 
   function handleChangeInput(event) {
     const value = event.target.value;
-    setFormAdd({ ...formAdd, [event.target.name]: value });
+    setItems({ ...items, [event.target.name]: value });
   }
 
   async function handleAddRegister(event) {
@@ -38,17 +50,64 @@ function Home() {
           },
         }
       );
-
-      // localItems.push(response.data);
-      // setItems(localItems);
+      localItems.push(response.data);
+      setItems(localItems);
     } catch (error) {
       console.log(error);
     }
   }
 
+  function handleChangeForm(event) {
+    const value = event.target.value;
+    setFormAdd({ ...formAdd, [event.target.name]: value });
+  }
+
+  useEffect(() => {
+    try {
+      async function handleRegister() {
+        const response = await api.get("/listarAnimais", {
+          headers: {
+            Authorization: `Bearer ${getItem("token")}`,
+          },
+        });
+        setItems(response.data);
+      }
+      handleRegister();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [items]);
+
+  function handleOpenModalEditAnimal() {
+    setShowModalEditAnimal(!showModalEditAnimal);
+  }
+
+  function handleModalDeleteAnimal() {
+    setBtnDelete(!btnDelete);
+  }
+
+  function clear() {
+    localStorage.clear();
+    navigate("/");
+  }
   return (
     <div className="container__home">
-      <Header />
+      <header className="header__home">
+        <img className="pets" src={pets} alt="logo" />
+        <img className="heart" src={heart} alt="heart" />
+        <h1>Pet's Home</h1>
+        <div className="icons-menu">
+          <img className="user-home" src={user} alt="perfil" />
+          <span className="name-user">Liz</span>
+          <img
+            className="exit-home"
+            src={exit}
+            alt="sair"
+            onClick={() => clear()}
+          />
+        </div>
+        <h2>Aqui, seu pet se sente em casa!</h2>
+      </header>
       <main className="section__home">
         <div className="main__form">
           <form
@@ -110,12 +169,26 @@ function Home() {
 
               // value={}
             />
-            <button className="btn__home">Confirmar</button>
+            <button
+              className="btn__home"
+              // onClick={}
+            >
+              Confirmar
+            </button>
           </form>
         </div>
         <div className="table">
-          <Table />
+          <Table
+            handleAddRegister={handleAddRegister}
+            localItems={localItems}
+            setItems={setItems}
+            items={items}
+            handleModalDeleteAnimal={handleModalDeleteAnimal}
+          />
         </div>
+        {/* {showModalEditAnimal && (
+          <UpdateAnimal setShowModalEditAnimal={setShowModalEditAnimal} />
+        )} */}
       </main>
       <Footer />
     </div>

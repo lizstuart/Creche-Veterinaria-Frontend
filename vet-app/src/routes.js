@@ -16,9 +16,8 @@ function MainRoutes() {
       <Route path="/" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
 
-      <Route element={<ProtectedRoutes redirectTo="/" />}>
-        <Route path="/home" element={<Home />} />
-      </Route>
+      <Route element={<ProtectedRoutes redirectTo="/" />}></Route>
+      <Route path="/home" element={<Home />} />
     </Routes>
   );
 }

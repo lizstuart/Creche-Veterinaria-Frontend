@@ -2,53 +2,72 @@ import "./styles.css";
 import api from "../../Service/api";
 import { useState, useEffect } from "react";
 import { getItem } from "../../Utils/storage";
+import deliteAnimal from "../../assets/delete.svg";
+import editAnimal from "../../assets/pencil.svg";
 
-function Table({}) {
-  const [items, setItems] = useState([]);
+function Table({ items, setItems }) {
+  const [showModalEditAnimal, setShowModalEditAnimal] = useState(false);
+  const [deleteAnimal, setDeleteAnimal] = useState(false);
   // const localItems = items;
 
-  useEffect(() => {
-    try {
-      async function handleRegister() {
-        const response = await api.get("/transacao", {
-          headers: {
-            Authorization: `Bearer ${getItem("token")}`,
-          },
-        });
-        setItems(response.data);
-      }
-      handleRegister();
-    } catch (error) {
-      console.log(error);
-    }
-  }, [items]);
-  return (
-    <>
-      <table className="header-table">
-        <thead className="header-thead">
-          <tr>
-            <th className="date">
-              Nome
-              {/* <img className="seta-table" src={seta} alt="seta" /> */}
-            </th>
-            <th>Espécie</th>
-            <th>Raça</th>
-            <th>Gênero</th>
-            <th>Idade</th>
-            <th></th>
-          </tr>
-        </thead>
+  // async function handleAddRegister(event) {
+  //   event.preventDefault();
+  //   try {
+  //     const response = await api.post(
+  //       "/transacao",
+  //       {
+  //         tipo: localItems.tipo,
+  //         descricao: localItems.descricao,
+  //         valor: localItems.valor,
+  //         data: localItems.data,
+  //         categoria_id: localItems.categoria_id,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${getItem("token")}`,
+  //         },
+  //       }
+  //     );
 
-        {/* {localItems.map((item) => (
-          <TableBody
-            key={item.id}
-            items={item}
-            setShowModalEditItem={setShowModalEditItem}
-            localItems={localItems}
+  //     localItems.push(response.data);
+  //     setItems(localItems);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  return (
+    <div className="container-table">
+      <div className="table-head">
+        <strong className="table-column-big">Nome</strong>
+        <strong className="table-column-middle">Espécie</strong>
+        <strong className="table-column-middle">Raça</strong>
+        <strong className="table-column-middle">Gênero</strong>
+        <strong className="table-column-small">Idade</strong>
+        <div className="table-column-small"></div>
+      </div>
+      <div className="table-body">
+        <span className="table-column-big">Priscila</span>
+        <span className="table-column-middle">Canina</span>
+        <span className="table-column-middle">SRD</span>
+        <span className="table-column-middle">Feminino</span>
+        <span className="table-column-small">10 anos</span>
+        <span className="table-column-small images">
+          <img
+            src={editAnimal}
+            alt="edit"
+            showModalEditAnimal={showModalEditAnimal}
+            setShowModalEditAnimal={setShowModalEditAnimal}
           />
-        ))} */}
-      </table>
-    </>
+          <img
+            src={deliteAnimal}
+            alt="delete"
+            deleteAnimal={deleteAnimal}
+            setDeleteAnimal={setDeleteAnimal}
+          />
+        </span>
+      </div>
+    </div>
   );
 }
 
